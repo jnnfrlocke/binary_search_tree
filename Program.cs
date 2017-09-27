@@ -10,6 +10,9 @@ namespace Binary_Search_Tree
     {
         static void Main(string[] args)
         {
+            BinarySearchTree buildTree = new BinarySearchTree();
+            buildTree.NewTree();
+            buildTree.InitiateSearch();
         }
     }
 }
