@@ -1,5 +1,4 @@
-﻿using BinaryTree;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,30 +10,29 @@ namespace Binary_Search_Tree
     class BinaryTree<T> : IEnumerable<T>
         where T: IComparable<T>
     {
-        public BinaryTreeNode<T> node;
+        public TreeNode<T> node;
         private int count;
-        
-        public void Add(T input)
+
+        public void Add(T value)
         {
             if (node == null)
             {
-                node = new BinaryTreeNode<T>(input);
+                node = new TreeNode<T>(value);
             }
             else
             {
-                AddTo(node, input);
+                AddTo(node, value);
             }
-
             count++;
         }
-        
-        private void AddTo(BinaryTreeNode<T> node, T value)
+
+        private void AddTo(TreeNode<T> node, T value)
         {
             if (value.CompareTo(node.Value) < 0)
             {
                 if (node.Left == null)
                 {
-                    node.Left = new BinaryTreeNode<T>(value);
+                    node.Left = new TreeNode<T>(value);
                 }
                 else
                 { 
@@ -45,7 +43,7 @@ namespace Binary_Search_Tree
             {
                 if (node.Right == null)
                 {
-                    node.Right = new BinaryTreeNode<T>(value);
+                    node.Right = new TreeNode<T>(value);
                 }
                 else
                 {
@@ -59,9 +57,9 @@ namespace Binary_Search_Tree
             return Find(value) != null;
         }
         
-        private BinaryTreeNode<T> Find(T value)
+        private TreeNode<T> Find(T value)
         {
-            BinaryTreeNode<T> current = node;
+            TreeNode<T> current = node;
             
             while (current != null)
             {
